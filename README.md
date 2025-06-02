@@ -1,57 +1,91 @@
-# BDA Project
+# BDA Project: Educational Disparities in Access to Essential Services
 
-## Project Overview
-This project investigates educational disparities in access to essential services such as healthcare, education, and commercial centers. It uses supervised machine learning techniques to analyze whether households led by individuals with lower educational attainment face longer distances to essential services.
+## 🔍 Project Overview
 
-## Key Features
-- Data exploration and preprocessing
-- Linear regression and Random Forest models for prediction
-- Classification models to categorize distance into short, medium, or long
-- Cross-validation and performance evaluation
+This project investigates how the education level of household heads in Estonia (2010–2012) influences the average distance to essential services like schools, shops, post offices, and public transport. The aim is to identify potential socio-spatial inequalities using open government data and interpretable machine learning techniques.
 
-## Installation
+## ⚙️ Key Features
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/Mikeangelo5/BDA_Project.git
+* Data retrieval via Statistics Estonia API (LET300 table)
+* Exploratory Data Analysis (EDA) using boxplots, line plots, and heatmaps
+* Supervised ML models for regression and classification:
 
+  * Regression: Linear, Ridge, Random Forest
+  * Classification: Random Forest, Logistic Regression
+* Feature importance visualization
+* Performance evaluation with cross-validation, RMSE, R², accuracy, F1-score
 
-2. **Install dependencies**:
-Ensure you have Python 3.x installed. Then, install the necessary libraries:
+## 📃 Dataset
 
-bash
-Copy
+* Source: [Statistics Estonia (LET300 Table)](https://andmed.stat.ee/en/stat/LET300)
+* Timeframe: 2010–2012
+* Features: Education level of household head, type of service, year, and average distance (km)
+
+## 💡 Methodology
+
+* Data Cleaning and Restructuring (JSON-stat2 to tabular form)
+* Label encoding of categorical features
+* Regression models to predict numeric distance
+* Classification models to categorize distances: Short (<2 km), Medium (2–3.5 km), Long (>3.5 km)
+* Evaluation Metrics:
+
+  * Regression: R² Score, RMSE
+  * Classification: Accuracy, Precision, Recall, F1-Score, Confusion Matrix
+
+## 💡 Insights
+
+* Education level and type of service were key predictors of distance
+* Random Forest Regression achieved R² ≈ 0.97 (RMSE = 0.19)
+* Random Forest Classifier achieved 73% accuracy
+* Logistic Regression achieved 68% accuracy
+* Strong classification performance for "Medium" distance group
+
+## 🚧 Challenges & Solutions
+
+**Challenges:**
+
+* Limited dataset (no geographic or socioeconomic variables)
+* Data imbalance across education levels and services
+
+**Solutions:**
+
+* Applied label encoding and category grouping for balance
+* Used cross-validation and two model types (regression + classification)
+
+## 🚿 Installation
+
+1. **Clone the repository:**
+
+```bash
+git clone https://github.com/Mikeangelo5/BDA_Project.git
+cd BDA_Project
+```
+
+2. **Install dependencies:**
+
+```bash
 pip install -r requirements.txt
-3. **Run the project**:
+```
 
-The main script is located in main.py. To run it, execute:
+3. **Run the notebook or main script:**
+   Use the `BDA_Project.ipynb` notebook for step-by-step execution.
 
-bash
-Copy
-python main.py
-Data
-The dataset used in this project is publicly available from Eesti Statistical Database.
+## 🔍 Tools Used
 
-**Methodology**
-This project applies Supervised Machine Learning techniques:
+* Python 3.x
+* Pandas, NumPy
+* Seaborn, Matplotlib
+* Scikit-learn
 
-Regression Models: Linear regression and Random Forest Regression
+## 👥 Contributors
 
-Classification Models: Logistic Regression, Decision Trees, and Random Forest Classifiers
+* Yagub Hajiyev
+* Elchin Huseynov
 
-Evaluation: The models are evaluated using metrics like R², accuracy, precision, recall, and F1-score.
+## 📅 License
 
-Challenges and Solutions
-Expected Challenges:
-Limited Feature Set: The dataset mainly contains education level and distance data, limiting model complexity.
+This project is licensed under the [MIT License](./LICENSE).
 
-Data Imbalance: Some education levels may have fewer entries, which could affect the model’s accuracy.
+---
 
-Solutions:
-Apply techniques like oversampling and feature engineering to mitigate these issues.
-
-**Contributors**
-
-Yagub Hajiyev
-
-Elchin Huseynov
+*For questions or feedback, feel free to open an issue or contact the contributors via GitHub.*
