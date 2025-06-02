@@ -51,6 +51,7 @@ Solutions:
 Apply techniques like oversampling and feature engineering to mitigate these issues.
 
 **Contributors**
+
 Yagub Hajiyev
 
 Elchin Huseynov
